@@ -14,4 +14,7 @@ It will be divided into 6 parts.
   - Imbalance and trading activity
   - Autocorrelation of trade signs
   - Average shape of the Limit Order Book
- 
+ ## Part3. Poisson Process
+  - Time homogeneous Poisson Process
+  - Non-time homogeneous Poisson Process for trades
+  
