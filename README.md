@@ -23,4 +23,7 @@
   - The basic peoperties of Hawkes Process
   - Test the goodness of fit for the Hawkes Process
   - Simulation of Hawkes Process on MLE
+ ## Part5. Hawkes Process in Finance
+  - The fit of Hawkes Model to the limit order book
+  - Systematic analysis.
  
