@@ -26,4 +26,6 @@
  ## Part5. Hawkes Process in Finance
   - The fit of Hawkes Model to the limit order book
   - Systematic analysis.
- 
+ ## Part6. Poisson Process and Limit Order Book - Perfect Market Making
+  - Sanity check
+  - Simulation of limit order book
