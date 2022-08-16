@@ -193,8 +193,42 @@
   
   The number of kernels chosen with the AIC does not seem to depend on the number of pieces in the baseline. However, it clearly increases with the sample length, which further proves the firts point of this section that longer sample length require more kernels.
 
+  ## Part6. Poisson Process and Limit Order Book - Perfect Market Making
+  
+  - Sanity check
+  
+  ![image](https://user-images.githubusercontent.com/110284601/184846439-29dcc6a0-b5f9-4887-b9bc-db20f1b2dbab.png)
+  
+  The above plot and prints allow us to check that the last transition worked as expected. Changing the index of the events in the history h allowed us to chech other individual events at will, and we did not notice any irregularity.
+  
+  We change the arbitrary floats representing time to a datetime format (assuming that the floats represent a number of seconds, even though it does not necessarly), in order to use sampling methods in later questions.
+  
+  ![image](https://user-images.githubusercontent.com/110284601/184846591-b4851a8e-831e-4ffd-8f2f-d4eeb923fa8a.png)
+  
+  We excpect the intensity of the time of events to be around  2𝜇+2𝐾𝜆+10𝐾𝜃=55  (because the initial values of the volumes are at 5, so we expect  5𝜃  to be close to the average intensity of the times of arrival for cancellation order on a given position of the window). Therefore, we excpect to have ~30 000 events in our simulation, which is the case. The relative number of events in each category are also distributed as expected (the event of the same type (market order/limit order/cancellation) have similar numbers of occurence regardless of the side of the lob they were related to; we excpected to have 6 times more limit orders than market orders based on the values of  𝜇  and  𝐾𝜆 , which is verified)
 
 
+  - Simulation of limit order book
+
+  ![image](https://user-images.githubusercontent.com/110284601/184846654-09e7d1b2-1e46-4006-80bb-77511d4bbaeb.png)
+  
+  The average shape of the LOB is as expected, with a dip in volumes close to the spread.The peaks in the LOB right after and before the spread also make sense: neglecting the market orders, the initial value of X imposes that the volumes further away stay around 5, and the shape in between depends on the relative intensities of limit orders and cancellations. Here, we have significantly more limit orders, hence the peaks.
+  
+  ![image](https://user-images.githubusercontent.com/110284601/184846708-b9cd45f1-2491-451f-9a05-46599e213ecc.png)
+  
+  As expected, the variation of the med price seems centered (the model is symetric between asks and bids), and is mostly confined to small values (smaller than 0.5), which is not surprising, as a large change in mid price requires a change twice as large in the spread, and since the spread mostly varies between 1 and 2, it can't vary too much either.
+
+  ![image](https://user-images.githubusercontent.com/110284601/184846761-9782ab63-932a-4907-9bda-f97a208b932c.png)
+  
+  As expected, for shorts sampling periods, the variation of the mid price spikes at 0, and the larger the sampling period, the wider the distribution of mid variation.
+  
+  ![image](https://user-images.githubusercontent.com/110284601/184846823-770098b1-0ad0-413d-83d8-905bd8bbaf55.png)
+  
+  The model does not show memory in the mid price variation, which is to be expected, as the events are independant from each other.
+
+  ![image](https://user-images.githubusercontent.com/110284601/184846877-e17f8f5e-988f-4fd3-946b-5aee0bfccd07.png)
+  
+  As expected from the distributions plotted previously, the variance increases with the sampling period. Early on, the variance increases faster, but the rate of progression stabilizes once a sampling period of around 10secs is reached, probably because we can add a lot of variance by removing the peak at 0 in the small sampling periods.
 
 
   
