@@ -167,10 +167,33 @@
   
   - The fit of Hawkes Model to the limit order book
   
-
+  ![image](https://user-images.githubusercontent.com/110284601/184845407-09028fa9-be43-4ecd-baea-207cc0fa54cc.png)  
 
 
   - Systematic analysis.
+  
+  To test for goodness of fit, we used a KS test for a uniformly distributed variable on the transfuced times. Higher p-values indicate good fit, and we used a threshold of 0.9. The test is passed 7% of the time, which indicates rather poor goodness of fit.
+  
+  ![image](https://user-images.githubusercontent.com/110284601/184845528-8f4aa1f3-c415-423e-9756-d0f5b6347001.png)
+
+  As expected, the p-value of the KS test increases with the numbr of exponential kernels on longer samples, which indicates a better fit. The highest p-value remains small (around 0.13), which could be explained by the fact that we averaged on all the value of number of linear pieces in the baseline.
+  
+  ![image](https://user-images.githubusercontent.com/110284601/184845588-9ed5b865-52d4-4a53-b88f-0cde98609855.png)
+  
+  Using only the highest value of number of linear pieces in the baseline allows to reach better goodness of fit as expected.
+
+  ![image](https://user-images.githubusercontent.com/110284601/184845664-34dc9c91-a24b-4e45-ae3d-4c34c3dec2ca.png)
+  ![image](https://user-images.githubusercontent.com/110284601/184845685-53e0d6d2-8936-4ba3-b05f-e1825f03f4d8.png)
+  ![image](https://user-images.githubusercontent.com/110284601/184845704-1d306655-6b08-4b00-b595-4cca5014c6bf.png)
+  
+  Branching ratio increases with the number of kernels (which is not surprising since adding kernels adds terms to the sum in the definition of the branching ratio), and with the sample length (which probably means that when the sample length gets too high, the baseline intensity has to be low enough to accomodate for the least active parts of the day, and the remaining activity has to be added with endogeneity). It decreases with the number of pieces in the baselines, which further coroborates this last point, as more pieces means that the model can acomodate with the more and less active parts of the day with the baseline.
+
+  ![image](https://user-images.githubusercontent.com/110284601/184845752-4b37d2ed-ff39-44fc-a81f-7e9628be9c37.png)
+  ![image](https://user-images.githubusercontent.com/110284601/184845785-a7dcc3ef-c1b6-4d3a-8101-f4fd9991d793.png)
+  
+  The number of kernels chosen with the AIC does not seem to depend on the number of pieces in the baseline. However, it clearly increases with the sample length, which further proves the firts point of this section that longer sample length require more kernels.
+
+
 
 
 
