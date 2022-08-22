@@ -3,6 +3,19 @@
 - It will be divided into 6 parts.
 - Deal to the non-disclosure agreement, the disclosure of data is strictly forbiddened.
 
+
+### What we have reached
+
+Hawkes model is a good fit for limit order book.
+
+![image](https://user-images.githubusercontent.com/110284601/185869172-4f6eb2f5-b44b-4e19-95a5-d07d4de8ce21.png)
+
+
+
+
+
+
+
 # SUMMARY
 
 ## Part1. The Introduction to the High Frequency Data
