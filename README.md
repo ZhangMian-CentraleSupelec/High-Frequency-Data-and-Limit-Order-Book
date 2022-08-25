@@ -4,7 +4,7 @@
 - Deal to the non-disclosure agreement, the disclosure of data is strictly forbiddened.
 
 
-### What we have reached
+### What we have got
 
 Hawkes model is a good fit for limit order book.
 
